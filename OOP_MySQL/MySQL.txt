@@ -1,0 +1,205 @@
+gb@gb-linux:~/finalWorkSpec$ docker run -e MYSQL_ROOT_PASSWORD=1234 -d mysql:latest
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+d9a40b27c30f: Pull complete
+d948328c7651: Pull complete
+c1e267313ede: Pull complete
+7478f013875a: Pull complete
+9221a2250289: Pull complete
+d1f57baa52d5: Pull complete
+35c3d30e8624: Pull complete
+3d4d1dd0cca6: Pull complete
+08bfe3f7d1c5: Pull complete
+537e7daeeea3: Pull complete
+Digest: sha256:72a37ddc9f839cfd84f1f6815fb31ba26f37f4c200b90e49607797480e3be446
+Status: Downloaded newer image for mysql:latest
+721dac048e47d132b936afc24c81a1761a5b44abb1bd31d7882b06506ea7a128
+gb@gb-linux:~/finalWorkSpec$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                 NAMES
+721dac048e47   mysql:latest   "docker-entrypoint.s…"   8 seconds ago   Up 6 seconds   3306/tcp, 33060/tcp   peaceful_greider
+gb@gb-linux:~/finalWorkSpec$ sudo su - root
+[sudo] пароль для gb:
+root@gb-linux:~# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.37-0ubuntu0.22.04.3 (Ubuntu)
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| HomeWork6          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sys                |
++--------------------+
+6 rows in set (0,00 sec)
+
+mysql> CREATE DATABASE human_friends;
+Query OK, 1 row affected (0,02 sec)
+
+mysql> USE human_friends;
+Database changed
+mysql> CREATE TABLE pets (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     `name` VARCHAR(50),
+    ->     `type` ENUM ('dog','cat', 'hamster'),
+    ->     birthdate DATE,
+    ->     command VARCHAR(200)
+    -> );
+Query OK, 0 rows affected (0,05 sec)
+
+mysql> INSERT INTO pets (`name`,`type`, birthdate, command) VALUES
+    -> ('Fido', 'dog', '2020-01-01', 'Sit, Stay, Fetch'),
+    -> ('Whiskers', 'cat', '2019-05-15', 'Sit, Pounce'),
+    -> ('Hammy', 'hamster', '2021-03-10', 'Roll, Hide'),
+    -> ('Buddy', 'dog', '2018-12-10', 'Sit, Paw, Bark'),
+    -> ('Smudge', 'cat', '2020-02-20', 'Sit, Pounce, Scratch'),
+    -> ('Peanut', 'hamster', '2021-08-01', 'Sit, Roll, Spin'),
+    -> ('Bella', 'dog', '2019-11-11', 'Sit, Stay, Roll'),
+    -> ('Oliver', 'cat', '2020-06-30', 'Meow, Scratch, Jump');
+Query OK, 8 rows affected (0,02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pets;
++----+----------+---------+------------+----------------------+
+| id | name     | type    | birthdate  | command              |
++----+----------+---------+------------+----------------------+
+|  1 | Fido     | dog     | 2020-01-01 | Sit, Stay, Fetch     |
+|  2 | Whiskers | cat     | 2019-05-15 | Sit, Pounce          |
+|  3 | Hammy    | hamster | 2021-03-10 | Roll, Hide           |
+|  4 | Buddy    | dog     | 2018-12-10 | Sit, Paw, Bark       |
+|  5 | Smudge   | cat     | 2020-02-20 | Sit, Pounce, Scratch |
+|  6 | Peanut   | hamster | 2021-08-01 | Sit, Roll, Spin      |
+|  7 | Bella    | dog     | 2019-11-11 | Sit, Stay, Roll      |
+|  8 | Oliver   | cat     | 2020-06-30 | Meow, Scratch, Jump  |
++----+----------+---------+------------+----------------------+
+8 rows in set (0,00 sec)
+
+mysql> CREATE TABLE pack_animals (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     `name` VARCHAR(50),
+    ->     `type` ENUM('horse', 'camel', 'donkey'),
+    ->     birthdate DATE,
+    ->     command VARCHAR(200)
+    -> );
+Query OK, 0 rows affected (0,07 sec)
+
+mysql> INSERT INTO pack_animals (`name`,`type`, birthdate, command) VALUES
+    -> ('Thunder', 'horse', '2022-07-21', 'Trot, Canter, Gallop'),
+    -> ('Sandy', 'camel', '2016-11-03', 'Walk, Carry Load'),
+    -> ('Eeyore', 'donkey', '2022-09-18', 'Walk, Carry Load, Bray'),
+    -> ('Storm', 'horse', '2014-05-05', 'Trot, Canter'),
+    -> ('Dune', 'camel', '2018-12-12', 'Walk, Sit'),
+    -> ('Burro', 'donkey', '2019-01-23', 'Walk, Bray, Kick'),
+    -> ('Blaze', 'horse', '2016-02-29', 'Trot, Jump, Gallop'),
+    -> ('Sahara', 'camel', '2015-08-14', 'Walk, Run');
+Query OK, 8 rows affected (0,01 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pack_animals;
++----+---------+--------+------------+------------------------+
+| id | name    | type   | birthdate  | command                |
++----+---------+--------+------------+------------------------+
+|  1 | Thunder | horse  | 2022-07-21 | Trot, Canter, Gallop   |
+|  2 | Sandy   | camel  | 2016-11-03 | Walk, Carry Load       |
+|  3 | Eeyore  | donkey | 2022-09-18 | Walk, Carry Load, Bray |
+|  4 | Storm   | horse  | 2014-05-05 | Trot, Canter           |
+|  5 | Dune    | camel  | 2018-12-12 | Walk, Sit              |
+|  6 | Burro   | donkey | 2019-01-23 | Walk, Bray, Kick       |
+|  7 | Blaze   | horse  | 2016-02-29 | Trot, Jump, Gallop     |
+|  8 | Sahara  | camel  | 2015-08-14 | Walk, Run              |
++----+---------+--------+------------+------------------------+
+8 rows in set (0,00 sec)
+
+mysql> SELECT * FROM pack_animals
+    -> WHERE `type` != 'camel';
++----+---------+--------+------------+------------------------+
+| id | name    | type   | birthdate  | command                |
++----+---------+--------+------------+------------------------+
+|  1 | Thunder | horse  | 2022-07-21 | Trot, Canter, Gallop   |
+|  3 | Eeyore  | donkey | 2022-09-18 | Walk, Carry Load, Bray |
+|  4 | Storm   | horse  | 2014-05-05 | Trot, Canter           |
+|  6 | Burro   | donkey | 2019-01-23 | Walk, Bray, Kick       |
+|  7 | Blaze   | horse  | 2016-02-29 | Trot, Jump, Gallop     |
++----+---------+--------+------------+------------------------+
+5 rows in set (0,00 sec)
+
+mysql> DELETE
+    -> FROM pack_animals
+    -> WHERE `type`LIKE 'camel';
+Query OK, 3 rows affected (0,07 sec)
+
+mysql> SELECT * FROM pack_animals;
++----+---------+--------+------------+------------------------+
+| id | name    | type   | birthdate  | command                |
++----+---------+--------+------------+------------------------+
+|  1 | Thunder | horse  | 2022-07-21 | Trot, Canter, Gallop   |
+|  3 | Eeyore  | donkey | 2022-09-18 | Walk, Carry Load, Bray |
+|  4 | Storm   | horse  | 2014-05-05 | Trot, Canter           |
+|  6 | Burro   | donkey | 2019-01-23 | Walk, Bray, Kick       |
+|  7 | Blaze   | horse  | 2016-02-29 | Trot, Jump, Gallop     |
++----+---------+--------+------------+------------------------+
+5 rows in set (0,00 sec)
+
+mysql> CREATE TABLE young_animal (
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     `name` VARCHAR(50),
+    ->     `type` VARCHAR(200),
+    ->     birthdate DATE,
+    ->     command VARCHAR(200)
+    -> );
+Query OK, 0 rows affected (0,06 sec)
+
+mysql> INSERT INTO young_animal (`name`,`type`, birthdate, command)
+    -> SELECT * FROM ((SELECT `name`,`type`, birthdate, command FROM pets WHERE TIMESTAMPDIFF(YEAR, birthdate, NOW()) BETWEEN 1 AND 2)
+    -> UNION
+    -> (SELECT `name`,`type`, birthdate, command FROM pack_animals WHERE TIMESTAMPDIFF(YEAR, birthdate, NOW()) BETWEEN 1 AND 2))
+    -> AS  young_animal_table;
+Query OK, 3 rows affected (0,07 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * , TIMESTAMPDIFF(YEAR, birthdate, NOW()) AS _year, (TIMESTAMPDIFF(MONTH, birthdate, NOW()) % 12) AS _month
+    -> FROM young_animal;
++----+---------+---------+------------+------------------------+-------+--------+
+| id | name    | type    | birthdate  | command                | _year | _month |
++----+---------+---------+------------+------------------------+-------+--------+
+|  1 | Peanut  | hamster | 2021-08-01 | Sit, Roll, Spin        |     2 |     11 |
+|  2 | Thunder | horse   | 2022-07-21 | Trot, Canter, Gallop   |     2 |      0 |
+|  3 | Eeyore  | donkey  | 2022-09-18 | Walk, Carry Load, Bray |     1 |     10 |
++----+---------+---------+------------+------------------------+-------+--------+
+3 rows in set (0,00 sec)
+
+mysql> SELECT * ,'Pets' AS table_name  FROM pets
+    -> UNION SELECT * , 'pack_animals' AS table_name FROM pack_animals;
++----+----------+---------+------------+------------------------+--------------+
+| id | name     | type    | birthdate  | command                | table_name   |
++----+----------+---------+------------+------------------------+--------------+
+|  1 | Fido     | dog     | 2020-01-01 | Sit, Stay, Fetch       | Pets         |
+|  2 | Whiskers | cat     | 2019-05-15 | Sit, Pounce            | Pets         |
+|  3 | Hammy    | hamster | 2021-03-10 | Roll, Hide             | Pets         |
+|  4 | Buddy    | dog     | 2018-12-10 | Sit, Paw, Bark         | Pets         |
+|  5 | Smudge   | cat     | 2020-02-20 | Sit, Pounce, Scratch   | Pets         |
+|  6 | Peanut   | hamster | 2021-08-01 | Sit, Roll, Spin        | Pets         |
+|  7 | Bella    | dog     | 2019-11-11 | Sit, Stay, Roll        | Pets         |
+|  8 | Oliver   | cat     | 2020-06-30 | Meow, Scratch, Jump    | Pets         |
+|  1 | Thunder  | horse   | 2022-07-21 | Trot, Canter, Gallop   | pack_animals |
+|  3 | Eeyore   | donkey  | 2022-09-18 | Walk, Carry Load, Bray | pack_animals |
+|  4 | Storm    | horse   | 2014-05-05 | Trot, Canter           | pack_animals |
+|  6 | Burro    | donkey  | 2019-01-23 | Walk, Bray, Kick       | pack_animals |
+|  7 | Blaze    | horse   | 2016-02-29 | Trot, Jump, Gallop     | pack_animals |
++----+----------+---------+------------+------------------------+--------------+
+13 rows in set (0,00 sec)
+
+
+
