@@ -1,0 +1,111 @@
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 1
+Enter animal type:
+1. Dog
+2. Cat
+3. Hamster
+4. Horse
+5. Camel
+6. Donkey
+Enter number type animal: 1
+Enter animal name: Bobik
+Enter list command separated by a space: down
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 1
+Enter animal type:
+1. Dog
+2. Cat
+3. Hamster
+4. Horse
+5. Camel
+6. Donkey
+Enter number type animal: 2
+Enter animal name: Mirzik
+Enter list command separated by a space: meow shhhh
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 1
+Enter animal type:
+1. Dog
+2. Cat
+3. Hamster
+4. Horse
+5. Camel
+6. Donkey
+Enter number type animal: 4
+Enter animal name: Julius
+Enter list command separated by a space: igogo
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 4
+Created by animals: 3
+View created animals:
+1. Yes
+2. No
+1
+Меня зовут: Bobik
+Я умею: ['down']
+
+Меня зовут: Mirzik
+Я умею: ['meow', 'shhhh']
+
+Меня зовут: Julius
+Я умею: ['igogo']
+
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 2
+Enter animal name: Bobik
+Enter new command: voice
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 3
+Enter animal name: Bobik
+['down', 'voice']
+No such animal
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 4
+Created by animals: 3
+View created animals:
+1. Yes
+2. No
+1
+Меня зовут: Bobik
+Я умею: ['down', 'voice']
+
+Меня зовут: Mirzik
+Я умею: ['meow', 'shhhh']
+
+Меня зовут: Julius
+Я умею: ['igogo']
+
+1. Add new animal
+2. Teach command
+3. Get commands
+4. Print the number of animals.
+5. Exit
+Enter number comand: 5
