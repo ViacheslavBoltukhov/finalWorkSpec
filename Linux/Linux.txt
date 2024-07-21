@@ -127,3 +127,38 @@ gb@gb-linux:~/finalWorkSpec$ sudo service mysql status
 
 июл 21 11:40:33 gb-linux systemd[1]: Starting MySQL Community Server...
 июл 21 11:40:36 gb-linux systemd[1]: Started MySQL Community Server.
+
+Task 4
+gb@gb-linux:~/finalWorkSpec$ cd ~
+gb@gb-linux:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.4 LTS
+Release:	22.04
+Codename:	jammy
+gb@gb-linux:~$ cd finalWorkSpec/
+gb@gb-linux:~/finalWorkSpec$ ls -l
+итого 8
+-rw-rw-r-- 1 gb gb   41 июл 21 11:51 'Human Friends'
+-rw-rw-r-- 1 gb gb 3872 июл 21 12:36  nginx_1.18.0-6ubuntu14.4_amd64.deb
+gb@gb-linux:~/finalWorkSpec$ sudo dkpg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+[sudo] пароль для gb:
+sudo: dkpg: команда не найдена
+gb@gb-linux:~/finalWorkSpec$ sudo apt install gdebi
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Будут установлены следующие дополнительные пакеты:
+...
+gb@gb-linux:~/finalWorkSpec$ sudo dkpg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+sudo: dkpg: команда не найдена
+gb@gb-linux:~/finalWorkSpec$ sudo dpkg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+(Чтение базы данных … на данный момент установлено 208178 файлов и каталогов.)
+Подготовка к распаковке nginx_1.18.0-6ubuntu14.4_amd64.deb …
+Распаковывается nginx (1.18.0-6ubuntu14.4) на замену (1.18.0-6ubuntu14.4) …
+Настраивается пакет nginx (1.18.0-6ubuntu14.4) …
+gb@gb-linux:~/finalWorkSpec$ sudo dpkg -r sl
+dpkg: предупреждение: игнорируется запрос на удаление неустановленного пакета sl
+gb@gb-linux:~/finalWorkSpec$ sudo dpkg -r nginx
+(Чтение базы данных … на данный момент установлено 208178 файлов и каталогов.)
+Удаляется nginx (1.18.0-6ubuntu14.4) …
