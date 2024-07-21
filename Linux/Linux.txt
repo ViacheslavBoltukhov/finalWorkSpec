@@ -1,0 +1,129 @@
+Task 1
+gb@gb-linux:~$ cat Pets.txt
+cat: Pets.txt: Нет такого файла или каталога
+gb@gb-linux:~$ history -c
+gb@gb-linux:~$ cat > Pets
+Dogs
+Cats
+Humsters
+gb@gb-linux:~$ cat Pets
+Dogs
+Cats
+Humsters
+gb@gb-linux:~$ cat > Pack animals
+cat: animals: Нет такого файла или каталога
+gb@gb-linux:~$ cat > "Pack animals"
+Horses
+Camels
+Donkeys
+gb@gb-linux:~$ cat Pack
+Pack          Pack animals
+gb@gb-linux:~$ cat Pack animals
+cat: animals: Нет такого файла или каталога
+gb@gb-linux:~$ cat "Pack animals"
+Horses
+Camels
+Donkeys
+gb@gb-linux:~$ cat Pets "Pack animals" > Animals
+gb@gb-linux:~$ cat Animals
+Dogs
+Cats
+Humsters
+Horses
+Camels
+Donkeys
+gb@gb-linux:~$ mv Animals "Human Friends"
+gb@gb-linux:~$ cat "Human Friends"
+Dogs
+Cats
+Humsters
+Horses
+Camels
+Donkeys
+gb@gb-linux:~$ ls
+ docker       dockerHW4  'Human Friends'   mongodb   Pack            Pets     snap        test-docker.sh   Документы   Изображения   Общедоступные   Шаблоны
+ Dockerfile   gb          hw5              newroot  'Pack animals'   shared   testcrone   Видео            Загрузки    Музыка       'Рабочий стол'
+gb@gb-linux:~$ ls -l
+итого 140
+drwxrwxr-x 3 gb   gb      4096 апр 15 09:57  docker
+-rw-rw-r-- 1 gb   gb       125 мар 18 16:25  Dockerfile
+drwxrwxr-x 2 gb   gb      4096 апр 11 14:10  dockerHW4
+drwxrwxr-x 2 gb   gb      4096 мар 24 15:26  gb
+-rw-rw-r-- 1 gb   gb        41 июл 21 11:51 'Human Friends'
+drwxrwxr-x 3 gb   gb      4096 апр 15 10:25  hw5
+drwxrwxr-x 2 gb   gb      4096 мая  6 23:55  mongodb
+drwxrwxr-x 5 gb   gb      4096 мар 29 11:59  newroot
+-rw-rw-r-- 1 gb   gb         0 июл 21 11:48  Pack
+-rw-rw-r-- 1 gb   gb        22 июл 21 11:49 'Pack animals'
+-rw-rw-r-- 1 gb   gb        19 июл 21 11:47  Pets
+drwxrwx--- 1 root vboxsf 36864 июл 20 22:18  shared
+drwx------ 5 gb   gb      4096 мар 24 15:22  snap
+drwxrwxr-x 2 gb   gb      4096 мар  9 18:40  testcrone
+-rw-rw-r-- 1 gb   gb     21925 мар 24 18:23  test-docker.sh
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Видео
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Документы
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Загрузки
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Изображения
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Музыка
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Общедоступные
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22 'Рабочий стол'
+drwxr-xr-x 2 gb   gb      4096 фев 25 22:22  Шаблоны
+
+Task 2
+gb@gb-linux:~$ mkdir finalWorkSpec
+gb@gb-linux:~$ mv "Human Friends" finalWorkSpec/
+gb@gb-linux:~$ ls
+ docker       dockerHW4       gb    mongodb   Pack            Pets     snap        test-docker.sh   Документы   Изображения   Общедоступные   Шаблоны
+ Dockerfile   finalWorkSpec   hw5   newroot  'Pack animals'   shared   testcrone   Видео            Загрузки    Музыка       'Рабочий стол'
+gb@gb-linux:~$ cd finalWorkSpec/
+gb@gb-linux:~/finalWorkSpec$ ls -l
+итого 4
+-rw-rw-r-- 1 gb gb 41 июл 21 11:51 'Human Friends'
+
+Task 3
+gb@gb-linux:~/finalWorkSpec$ sudo apt update
+[sudo] пароль для gb:
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Сущ:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Игн:5 https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 InRelease
+Пол:6 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Сущ:7 https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 Release
+Игн:9 http://security.ubuntu.com/ubuntu impish-security InRelease
+Ошб:10 http://security.ubuntu.com/ubuntu impish-security Release
+  404  Not Found [IP: 91.189.91.83 80]
+Чтение списков пакетов… Готово
+W: https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/5.0/Release.gpg: Ключ хранится в унаследованной связке ключей trusted.gpg (/etc/apt/trusted.gpg), подробности см. в разделе DEPRECATION в apt-key(8).
+E: Репозиторий «http://security.ubuntu.com/ubuntu impish-security Release» не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+gb@gb-linux:~/finalWorkSpec$ sudo apt install mysql
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+E: Невозможно найти пакет mysql
+gb@gb-linux:~/finalWorkSpec$ sudo apt install mysql-server
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет mysql-server самой новой версии (8.0.37-0ubuntu0.22.04.3).
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  linux-headers-6.5.0-27-generic linux-hwe-6.5-headers-6.5.0-27 linux-image-6.5.0-27-generic linux-modules-6.5.0-27-generic linux-modules-extra-6.5.0-27-generic
+Для их удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 3 пакетов не обновлено.
+gb@gb-linux:~/finalWorkSpec$ sudo service mysql status
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2024-07-21 11:40:36 MSK; 33min ago
+    Process: 697 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 1025 (mysqld)
+     Status: "Server is operational"
+      Tasks: 37 (limit: 2259)
+     Memory: 12.2M
+        CPU: 25.769s
+     CGroup: /system.slice/mysql.service
+             └─1025 /usr/sbin/mysqld
+
+июл 21 11:40:33 gb-linux systemd[1]: Starting MySQL Community Server...
+июл 21 11:40:36 gb-linux systemd[1]: Started MySQL Community Server.
