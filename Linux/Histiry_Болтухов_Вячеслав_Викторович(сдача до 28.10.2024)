@@ -1,0 +1,35 @@
+gb@gb-linux:~/finalWorkSpec$ history
+    1  cat > Pets
+    2  cat Pets
+    3  cat > Pack animals
+    4  cat > "Pack animals"
+    5  cat Pack animals
+    6  cat "Pack animals"
+    7  cat Pets "Pack animals" > Animals
+    8  cat Animals
+    9  mv Animals "Human Friends"
+   10  cat "Human Friends"
+   11  ls
+   12  ls -l
+   13  mkdir finalWorkSpec
+   14  mv "Human Friends" finalWorkSpec/
+   15  ls
+   16  cd finalWorkSpec/
+   17  ls -l
+   18  sudo apt update
+   19  sudo apt install mysql
+   20  sudo apt install mysql-server
+   21  sudo service mysql status
+   22  sudo search gimp
+   23  cd ~
+   24  lsb_release -a
+   25  cd finalWorkSpec/
+   26  ls -l
+   27  sudo dkpg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+   28  sudo apt install gdebi
+   29  sudo dkpg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+   30  sudo dpkg -i nginx_1.18.0-6ubuntu14.4_amd64.deb
+   31  sudo dpkg -r sl
+   32  sudo dpkg -r nginx
+   33  history
+gb@gb-linux:~/finalWorkSpec$
